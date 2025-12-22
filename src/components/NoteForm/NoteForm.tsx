@@ -1,7 +1,8 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik"; // убрали Field, если не используешь
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNote } from "../../services/noteService";
+import css from "./NoteForm.module.css"; // <-- импорт CSS-модуля
 
 interface NoteFormProps {
   onClose: () => void;
@@ -33,7 +34,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
       onSubmit={(values) => mutation.mutate(values)}
     >
       <Form className={css.form}>
-        {/* поля ровно как в ТЗ */}
+        {/* здесь вставляем поля формы как в ТЗ */}
       </Form>
     </Formik>
   );

@@ -1,5 +1,5 @@
 import css from "./NoteList.module.css";
-import { Note } from "../../types/note";
+import type { Note } from "../../types/note"; // <-- type-only import
 
 interface NoteListProps {
   notes: Note[];
