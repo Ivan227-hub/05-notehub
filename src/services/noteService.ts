@@ -1,5 +1,6 @@
-import axios, { AxiosResponse } from "axios";
-import { Note } from "../types/note";
+import axios from "axios";                  // обычный импорт для runtime
+import type { AxiosResponse } from "axios"; // только для типов
+import type { Note } from "../types/note";  // только для типов
 
 const api = axios.create({
   baseURL: "https://notehub-public.goit.study/api",
