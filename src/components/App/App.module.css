@@ -1,4 +1,4 @@
-app {
+.app {
     width: 90%;
     max-width: 1280px;
     margin: 0px auto;
@@ -29,4 +29,3 @@ app {
   .button:hover {
     background-color: #0b5ed7;
   }
-  

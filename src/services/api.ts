@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem("token");
+  const token = import.meta.env.VITE_NOTEHUB_TOKEN; // берем токен из .env
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
