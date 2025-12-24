@@ -37,11 +37,13 @@ export default function App() {
         <SearchBox value={search} onChange={setSearch} />
 
         {data && data.totalPages > 1 && (
-          <Pagination
-            pageCount={data.totalPages}
-            onPageChange={setPage}
-          />
-        )}
+  <Pagination
+    pageCount={data.totalPages}
+    currentPage={page}   // 👈 ВАЖНО: добавили
+    onPageChange={setPage}
+  />
+)}
+
 
         <button
           type="button"

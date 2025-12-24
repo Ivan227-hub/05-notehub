@@ -14,16 +14,24 @@ export default function Modal({ children, onClose }: ModalProps) {
     const onEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
+
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onEsc);
+    };
   }, [onClose]);
 
   return createPortal(
-    <div className={css.backdrop} onClick={onClose}>
-      <div
-        className={css.modal}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div
+      className={css.backdrop}
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+    >
+      <div className={css.modal} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>,

@@ -11,4 +11,5 @@ export interface Note {
   content: string;
   tag: NoteTag;
   createdAt: string;
+  updatedAt: string; // ✅ обов’язково за ТЗ
 }
