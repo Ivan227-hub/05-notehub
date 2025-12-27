@@ -31,19 +31,24 @@ export default function App() {
     placeholderData: (previousData) => previousData,
   });
 
+  // ✅ ВАЖНО: обработчик изменения поиска
+  const handleSearchChange = (value: string) => {
+    setSearch(value);
+    setPage(1);
+  };
+
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
-        <SearchBox value={search} onChange={setSearch} />
+        <SearchBox value={search} onChange={handleSearchChange} />
 
         {data && data.totalPages > 1 && (
-  <Pagination
-    pageCount={data.totalPages}
-    currentPage={page}   // 👈 ВАЖНО: добавили
-    onPageChange={setPage}
-  />
-)}
-
+          <Pagination
+            pageCount={data.totalPages}
+            currentPage={page}
+            onPageChange={setPage}
+          />
+        )}
 
         <button
           type="button"
